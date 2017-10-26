@@ -3,6 +3,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import { AddItemPage } from '../add-item/add-item';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { Data } from '../../providers/data/data';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'page-home',
@@ -44,7 +45,20 @@ export class HomePage {
   }
 
   saveItem(item) {
+    // add item to array of to dos and add to data service
     this.items.push(item);
+    this.dataService.save(this.items);
+  }
+
+  removeItem(item) {
+    // TODO: refactor this for loop
+    for(let i = 0; i < this.items.length; i++) {
+      if(this.items[i] == item) {
+        this.items.splice(i, 1)
+      }
+    }
+
+    // update data service with new list
     this.dataService.save(this.items);
   }
 
