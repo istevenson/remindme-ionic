@@ -14,7 +14,7 @@ export class AddItemPage {
   constructor(public navCtrl: NavController, public view: ViewController) {
   }
 
-  saveItem(){
+  saveItem() {
     let newItem = {
       title: this.title,
       description: this.description
