@@ -4,8 +4,8 @@
       RemindMe
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
-        <ion-icon name="add-circle"></ion-icon>
+      <button ion-button icon-only>
+        <ion-icon name="help-circle"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -17,9 +17,18 @@
       <ion-item (click)="viewItem(item)">
         {{item.title}}
       </ion-item>
-      <ion-item-options>
-        <button (click)="removeItem(item)"><ion-icon name="trash"></ion-icon>Delete</button>
+      <ion-item-options side="left">
+        <button ion-button icon-only color="primary" large><ion-icon name="more"></ion-icon></button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button icon-only color="danger" (click)="removeItem(item)"><ion-icon name="remove-circle"></ion-icon></button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="addItem()">
+      <ion-icon name="add-circle"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>
