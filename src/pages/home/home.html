@@ -18,7 +18,7 @@
         {{item.title}}
       </ion-item>
       <ion-item-options side="left">
-        <button ion-button icon-only color="light" large><ion-icon name="more"></ion-icon></button>
+        <button ion-button icon-only color="light" large (click)="editItem(item)"><ion-icon name="more"></ion-icon></button>
       </ion-item-options>
       <ion-item-options side="right">
         <button ion-button icon-only color="danger" (click)="removeItem(item)"><ion-icon name="remove-circle"></ion-icon></button>

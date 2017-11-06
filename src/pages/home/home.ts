@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { AddItemPage } from '../add-item/add-item';
+import { EditItemPage } from '../edit-item/edit-item';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { Data } from '../../providers/data/data';
 import * as _ from 'underscore';
@@ -57,9 +58,20 @@ export class HomePage {
         this.items.splice(i, 1)
       }
     }
-
     // update data service with new list
     this.dataService.save(this.items);
+  }
+
+  editItem(item){
+    let updateModal = this.modalCtrl.create(EditItemPage, item);
+
+    updateModal.onDidDismiss((item) => {
+      if(item) {
+        this.saveItem(item);
+      }
+    });
+
+    updateModal.present();
   }
 
 

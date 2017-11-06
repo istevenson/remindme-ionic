@@ -7,15 +7,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddItemPage } from '../pages/add-item/add-item';
+import { EditItemPage } from '../pages/edit-item/edit-item';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { Data } from '../providers/data/data';
-import {IonicStorageModule} from "@ionic/storage";
+import { IonicStorageModule } from "@ionic/storage";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddItemPage,
+    EditItemPage,
     ItemDetailsPage
   ],
   imports: [
@@ -28,6 +30,7 @@ import {IonicStorageModule} from "@ionic/storage";
     MyApp,
     HomePage,
     AddItemPage,
+    EditItemPage,
     ItemDetailsPage
   ],
   providers: [

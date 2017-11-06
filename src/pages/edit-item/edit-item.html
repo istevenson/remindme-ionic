@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primaryLight">
     <ion-title>
-      Add Item
+      Edit Item
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
@@ -22,5 +22,5 @@
     </ion-item>
 
   </ion-list>
-  <button full ion-button color="primary" (click)="saveItem()">Save</button>
+  <button full ion-button color="primary" (click)="updateItem(item)">Save</button>
 </ion-content>
