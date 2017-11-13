@@ -12,6 +12,7 @@ import * as _ from 'underscore';
 })
 export class HomePage {
   public items = [];
+  public id: number;
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
     // load any stored data
@@ -28,7 +29,9 @@ export class HomePage {
 
   addItem(){
     // add item to to do list
-    let addModal = this.modalCtrl.create(AddItemPage);
+    let addModal = this.modalCtrl.create(AddItemPage, {
+      id: this.makeId()
+    });
 
     addModal.onDidDismiss((item) => {
       if(item) {
@@ -51,28 +54,39 @@ export class HomePage {
     this.dataService.save(this.items);
   }
 
+  updateItem(item) {
+    //update item in array of todos and update data services
+    this.items[item.id - 1] = item;
+  }
+
   removeItem(item) {
-    // TODO: refactor this for loop
-    for(let i = 0; i < this.items.length; i++) {
-      if(this.items[i] == item) {
-        this.items.splice(i, 1)
-      }
-    }
+    // TODO add error if remove fails
+    // find item id, remove it
+    this.items.splice(item.id, 1);
+
     // update data service with new list
     this.dataService.save(this.items);
   }
 
   editItem(item){
-    let updateModal = this.modalCtrl.create(EditItemPage, item);
+    let updateModal = this.modalCtrl.create(EditItemPage, {
+      item: item
+    });
 
     updateModal.onDidDismiss((item) => {
       if(item) {
-        this.saveItem(item);
+        this.updateItem(item)
       }
     });
 
     updateModal.present();
   }
 
-
+  makeId(): number {
+    if (this.items === undefined) {
+      return 1;
+    } else {
+      return this.items.length + 1;
+    }
+  }
 }

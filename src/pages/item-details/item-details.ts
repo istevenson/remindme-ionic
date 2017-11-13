@@ -9,6 +9,7 @@ export class ItemDetailsPage {
 
   public title;
   public description;
+  public id;
 
   constructor(public navParams: NavParams) {
   }
@@ -16,6 +17,7 @@ export class ItemDetailsPage {
   ionViewDidLoad() {
     this.title = this.navParams.get('item').title;
     this.description = this.navParams.get('item').description;
+    this.id = this.navParams.get('item').id;
   }
 
 }
