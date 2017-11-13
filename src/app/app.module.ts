@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { AddItemPage } from '../pages/add-item/add-item';
 import { EditItemPage } from '../pages/edit-item/edit-item';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { AboutPage } from '../pages/about/about';
 import { Data } from '../providers/data/data';
 import { IonicStorageModule } from "@ionic/storage";
 
@@ -16,6 +17,7 @@ import { IonicStorageModule } from "@ionic/storage";
   declarations: [
     MyApp,
     HomePage,
+    AboutPage,
     AddItemPage,
     EditItemPage,
     ItemDetailsPage
@@ -29,6 +31,7 @@ import { IonicStorageModule } from "@ionic/storage";
   entryComponents: [
     MyApp,
     HomePage,
+    AboutPage,
     AddItemPage,
     EditItemPage,
     ItemDetailsPage
