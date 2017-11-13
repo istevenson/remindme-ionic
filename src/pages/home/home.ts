@@ -15,6 +15,7 @@ export class HomePage {
   public id: number;
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
+
     // load any stored data
     this.dataService.getData().then((todos) => {
       // once data has loaded, set todos to items array
@@ -64,7 +65,7 @@ export class HomePage {
   removeItem(item) {
     // TODO add error if remove fails
     // find item id, remove it
-    this.items.splice(item.id, 1);
+    this.items.splice(item.id - 1, 1);
 
     // update data service with new list
     this.dataService.save(this.items);
@@ -91,4 +92,11 @@ export class HomePage {
       return this.items.length + 1;
     }
   }
+
+  toggleCompleted(item) {
+    this.items[item.id - 1].completed = !this.items[item.id - 1].completed;
+
+    this.updateItem(item);
+  }
+
 }

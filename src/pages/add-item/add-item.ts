@@ -11,6 +11,7 @@ export class AddItemPage {
   title: string;
   description: string;
   id: string;
+  isCompleted: boolean = false;
 
   constructor(public navCtrl: NavController, public view: ViewController,
               public params: NavParams) {
@@ -21,7 +22,8 @@ export class AddItemPage {
     let newItem = {
       title: this.title,
       description: this.description,
-      id: this.id
+      id: this.id,
+      completed: this.isCompleted
     };
 
     this.view.dismiss(newItem);
