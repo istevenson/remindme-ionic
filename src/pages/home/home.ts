@@ -57,6 +57,8 @@ export class HomePage {
   updateItem(item) {
     //update item in array of todos and update data services
     this.items[item.id - 1] = item;
+
+    this.dataService.save(this.items);
   }
 
   removeItem(item) {
