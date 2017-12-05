@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, reorderArray } from 'ionic-angular';
+import { AboutPage } from "../about/about";
 import { AddItemPage } from '../add-item/add-item';
 import { EditItemPage } from '../edit-item/edit-item';
 import { ItemDetailsPage } from '../item-details/item-details';
@@ -86,6 +87,7 @@ export class HomePage {
   }
 
   makeId(): number {
+    // generate new, unique id for an item
     if (this.items === undefined) {
       return 1;
     } else {
@@ -97,6 +99,14 @@ export class HomePage {
     this.items[item.id - 1].completed = !this.items[item.id - 1].completed;
 
     this.updateItem(item);
+  }
+
+  launchAbout(){
+    this.navCtrl.push(AboutPage)
+  }
+
+  reorderItems(indices){
+    this.items = reorderArray(this.items, indices);
   }
 
 }
