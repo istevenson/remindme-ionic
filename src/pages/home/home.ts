@@ -5,7 +5,6 @@ import { AddItemPage } from '../add-item/add-item';
 import { EditItemPage } from '../edit-item/edit-item';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { Data } from '../../providers/data/data';
-import * as _ from 'underscore';
 
 @Component({
   selector: 'page-home',
@@ -64,7 +63,6 @@ export class HomePage {
   }
 
   removeItem(item) {
-    // TODO add error if remove fails
     // find item id, remove it
     this.items.splice(item.id - 1, 1);
 
@@ -106,6 +104,7 @@ export class HomePage {
   }
 
   reorderItems(indices){
+    // logic for draggable list items
     this.items = reorderArray(this.items, indices);
   }
 

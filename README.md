@@ -1,26 +1,37 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+## RemindMe
 
-## How to use this template
+RemindMe is a simple to do list application built with [Ionic](https://ionicframework.com/), an open-source mobile
+app development framework which is based on [Angular](https://angular.io/). It supports the ability to add items
+to a list, edit, reorder, prioritize, and remove them.
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+### Getting Started
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+To run this application locally, choose one of the following options:
+* Download the latest release
+* Clone the repo: `git clone https://github.com/istevenson/remindme-ionic.git`
+* Fork the repo
 
-### With the Ionic CLI:
+## Project Structure
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+```
+.
+ ├── resources                    # Build files on the specific platforms (iOS, Android) and app icon + splash
+ ├── src                          # This is where the app lives - *the main folder*
+ ├── .editorconfig                # A helper file to define and maintain coding styles across environments
+ ├── .gitignore                   # Specifies intentionally untracked files to ignore when using Git
+ ├── .io-config.json              # Ionic ID
+ ├── config.xml                   # Ionic config file
+ ├── .ionic.config.json           # Global configuration for your Ionic app
+ ├── package.json                 # Dependencies and build scripts
+ ├── readme.md                    # Project description
+ ├── tsconfig.json                # TypeScript configurations
+ └── tslint.json                  # TypeScript linting options
 ```
 
-Then, to run it, cd into `myBlank` and run:
+### Start the project
+1. `$ npm install` to install all dependencies
+2. `$ ionic cordova platform add android`
+3. `$ ionic cordova run android`
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
+Note: The Android emulator must be opened and running prior to using the ```ionic cordova run android``` command
 
